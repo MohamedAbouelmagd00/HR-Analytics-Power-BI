@@ -1,5 +1,12 @@
 # README
 
+## Power BI LINK
+https://app.powerbi.com/view?r=eyJrIjoiMzE1ZTU2MjYtNjU5Zi00NTkyLWFhOGMtODQ4M2Q0ODdkMjFiIiwidCI6ImJhYzk0Y2Y0LTdkMjAtNDNhNC05NzFjLThhOTgxNWExZDE3ZiJ9&pageName=ReportSection
+
+<iframe title="HR Analytics" width="1024" height="1060" src="https://app.powerbi.com/view?r=eyJrIjoiMzE1ZTU2MjYtNjU5Zi00NTkyLWFhOGMtODQ4M2Q0ODdkMjFiIiwidCI6ImJhYzk0Y2Y0LTdkMjAtNDNhNC05NzFjLThhOTgxNWExZDE3ZiJ9&pageName=ReportSection" frameborder="0" allowFullScreen="true"></iframe>
+
+
+
 The datasets are in 5 files `EducationLevel.csv`, `Employee.csv`, `PerformanceRating.csv`, `RatingLevel.csv`, and `SatisfiedLevel.csv` 
 
 # Data Modeling and EDA
@@ -84,7 +91,7 @@ Connect these columns with `DimRatingLevel` and use `SelfRating` as the acti
         TotalEmployees = DISTINCTCOUNT(DimEmployee[EmployeeID])
         ```
         
-        ![Untitled](README%2089822b6d47a04160924301ee8c2bced5/Untitled.png)
+        ![Untitled](README/Untitled.png)
         
     3. Create two more measures: `ActiveEmployees` and `InactiveEmployees` inside the `_Measures` table, which takes the count of all employees that are currently active or inactive, respectively. (You can use `DimEmployee[Attrition]` to determine whether an employee is active or inactive: a "Yes" means the employee is inactive, a "No" means the employee is active.)
     Display both measures on card visuals.
@@ -97,7 +104,7 @@ Connect these columns with `DimRatingLevel` and use `SelfRating` as the acti
         InactiveEmployees = CALCULATE(DISTINCTCOUNT(DimEmployee[EmployeeID]), DimEmployee[Attrition] = "YES")
         ```
         
-        ![Untitled](README%2089822b6d47a04160924301ee8c2bced5/Untitled%201.png)
+        ![Untitled](README/Untitled%201.png)
         
     4. Calculate `% Attrition Rate` based on the previous measures that you have created. Format this measure as a percentage with 1 decimal place.
     Display this measure on a card visual.
@@ -108,10 +115,10 @@ Connect these columns with `DimRatingLevel` and use `SelfRating` as the acti
         % Attrition Rate = DIVIDE([InactiveEmployees], [TotalEmployees])
         ```
         
-        ![Untitled](README%2089822b6d47a04160924301ee8c2bced5/Untitled%202.png)
+        ![Untitled](README/Untitled%202.png)
         
     
-    ![Untitled](README%2089822b6d47a04160924301ee8c2bced5/Untitled%203.png)
+    ![Untitled](README/Untitled%203.png)
     
 - **Hiring Trends over time.**
     
@@ -121,7 +128,7 @@ Connect these columns with `DimRatingLevel` and use `SelfRating` as the acti
     1. Create a stacked column chart to show `TotalEmployees` by `Date`.
     Hmm… that didn't look quite right! That's because it has an inactive relationship. Let's activate it!
         
-        ![Untitled](README%2089822b6d47a04160924301ee8c2bced5/Untitled%204.png)
+        ![Untitled](README/Untitled%204.png)
         
     2. Create a new measure called `TotalEmployeesDate` that uses the `CALCULATE()` function on our previous measure and the `USERELATIONSHIP()` function in the filter.
         
@@ -131,35 +138,35 @@ Connect these columns with `DimRatingLevel` and use `SelfRating` as the acti
         
         - Replace `TotalEmployees` in our chart with our newly created `TotalEmployeesDate`.
             
-            ![Untitled](README%2089822b6d47a04160924301ee8c2bced5/Untitled%205.png)
+            ![Untitled](README/Untitled%205.png)
             
         - Add `Attrition` to the chart to see the split of employees by active vs inactive.
             
-            ![Untitled](README%2089822b6d47a04160924301ee8c2bced5/Untitled%206.png)
+            ![Untitled](README/Untitled%206.png)
             
         - Change the X-axis from 'Continuous' to 'Categorical'.
             
-            ![Untitled](README%2089822b6d47a04160924301ee8c2bced5/Untitled%207.png)
+            ![Untitled](README/Untitled%207.png)
             
         - Rename the chart "Employee Hiring Trends"
             
-            ![Untitled](README%2089822b6d47a04160924301ee8c2bced5/Untitled%208.png)
+            ![Untitled](README/Untitled%208.png)
             
         
 - **Analyzing departments and job roles.**
     1. Create a Clustered bar chart to show `ActiveEmployees` by `Department`. Rename this chart "Active Employees by Department”.
         
-        ![Untitled](README%2089822b6d47a04160924301ee8c2bced5/Untitled%209.png)
+        ![Untitled](README/Untitled%209.png)
         
     2. Create another appropriate visualization that displays `ActiveEmployees` by `Department` and `JobRole`. Rename this chart "Active Employees by Department and Job Role".
         
-        ![Untitled](README%2089822b6d47a04160924301ee8c2bced5/Untitled%2010.png)
+        ![Untitled](README/Untitled%2010.png)
         
     
 
-![Untitled](README%2089822b6d47a04160924301ee8c2bced5/Untitled%2011.png)
+![Untitled](README/Untitled%2011.png)
 
-![Untitled](README%2089822b6d47a04160924301ee8c2bced5/Untitled%2012.png)
+![Untitled](README/Untitled%2012.png)
 
 ### Building *Demographics* Page
 
@@ -167,32 +174,32 @@ Connect these columns with `DimRatingLevel` and use `SelfRating` as the acti
     1. Create two card visuals that displays the minimum and maximum values for `Age`.
     Remove the category label for both visuals and rename the cards "Youngest Employee"/"Oldest Employee".
         
-        ![Untitled](README%2089822b6d47a04160924301ee8c2bced5/Untitled%2013.png)
+        ![Untitled](README/Untitled%2013.png)
         
     2.  In *Power Query*, create a conditional column called `AgeBins` that separates employees ages by bins in the following structure: <\20, 20-29, 30-39, 40-49, 50>.
         
-        ![Untitled](README%2089822b6d47a04160924301ee8c2bced5/Untitled%2014.png)
+        ![Untitled](README/Untitled%2014.png)
         
         • Next, select an appropriate chart that displays `TotalEmployees` by `AgeBins`. Ensure that the chart is sorted by `AgeBins` ascending.
         • Rename the chart "Employees by Age"
         
-        ![Untitled](README%2089822b6d47a04160924301ee8c2bced5/Untitled%2015.png)
+        ![Untitled](README/Untitled%2015.png)
         
     3. • Duplicate the "Employees by Age" chart.
     • Change to an appropriate chart that shows the `TotalEmployees` value distribution across `AgeBins` and `Gender`.
     • Rename the chart "Employees by Age and Gender"
         
-        ![Untitled](README%2089822b6d47a04160924301ee8c2bced5/Untitled%2016.png)
+        ![Untitled](README/Untitled%2016.png)
         
     4. Add a page level filter that enables you to look at the report page based on whether an employee is current active or inactive.
         
-        ![Untitled](README%2089822b6d47a04160924301ee8c2bced5/Untitled%2017.png)
+        ![Untitled](README/Untitled%2017.png)
         
 - **Demographics: marital status and ethnicity**
     1. • Select an appropriate visualization that displays a count of all employees by `MaritalStatus`.
     • Rename the chart "Employees by Marital Status"
         
-        ![Untitled](README%2089822b6d47a04160924301ee8c2bced5/Untitled%2018.png)
+        ![Untitled](README/Untitled%2018.png)
         
     2. Create an `AverageSalary` measure inside the `_Measures` table, which works out the average salary of all employees.
     Format this measure as a currency with 0 decimal points.
@@ -204,10 +211,10 @@ Connect these columns with `DimRatingLevel` and use `SelfRating` as the acti
     3. Select an appropriate visualization that displays the count of all employees and their average salary by `Ethnicity`.
     Rename the chart "Employees by Ethnicity and Average Salary".
         
-        ![Untitled](README%2089822b6d47a04160924301ee8c2bced5/Untitled%2019.png)
+        ![Untitled](README/Untitled%2019.png)
         
 
-![Untitled](README%2089822b6d47a04160924301ee8c2bced5/Untitled%2020.png)
+![Untitled](README/Untitled%2020.png)
 
 ### Building ********************Performance Tracker******************** Page
 
@@ -216,11 +223,11 @@ Connect these columns with `DimRatingLevel` and use `SelfRating` as the acti
     2. Create a slicer that will be able to filter the report page based on the employee's `FullName`. Rename slicer to "Select employee".
     Ensure that *Single select,* and *Search* are enabled.
         
-        ![Untitled](README%2089822b6d47a04160924301ee8c2bced5/Untitled%2021.png)
+        ![Untitled](README/Untitled%2021.png)
         
     3. Create a card visual that displays the selected employees `HireDate`. Rename the card visual to "Start Date".
         
-        ![Untitled](README%2089822b6d47a04160924301ee8c2bced5/Untitled%2022.png)
+        ![Untitled](README/Untitled%2022.png)
         
     4. Create a measure `LastReviewDate` that gets the last performance review for the selected individual.
     If no review has taken place (the date is `BLANK()`), display a message that no review has happened. Format as "mm/dd/yyyy".
@@ -244,7 +251,7 @@ Connect these columns with `DimRatingLevel` and use `SelfRating` as the acti
         )
         ```
         
-        ![Untitled](README%2089822b6d47a04160924301ee8c2bced5/Untitled%2023.png)
+        ![Untitled](README/Untitled%2023.png)
         
     5. Create a measure `NextReviewDate` that calculates when the next review is due. It should be 365 days after the `LastReviewDate`.
     If no review has occurred yet, it should be 365 days from the `HireDate`. Format as Date (mm/dd/yyyy).
@@ -269,7 +276,7 @@ Connect these columns with `DimRatingLevel` and use `SelfRating` as the acti
             reviewOrHire + 365
         ```
         
-        ![Untitled](README%2089822b6d47a04160924301ee8c2bced5/Untitled%2024.png)
+        ![Untitled](README/Untitled%2024.png)
         
     6. Create a `JobSatisfaction` measure inside the `_Measures` table which works out the max `FactPerformanceRating[JobSatisfaction]` level.
         
@@ -295,7 +302,7 @@ Connect these columns with `DimRatingLevel` and use `SelfRating` as the acti
         
     8. Time to visualize! Choose an appropriate chart (or multiple charts) that shows `EnvironmentSatisfaction`, `JobSatisfaction`, `WorkLifeBalance`, and `RelationshipSatisfaction` by year.
         
-        ![Untitled](README%2089822b6d47a04160924301ee8c2bced5/Untitled%2025.png)
+        ![Untitled](README/Untitled%2025.png)
         
     9. Create two more measures, `SelfRating` and `ManagerRating`, that provide the max rating id, using `USERELATIONSHIP()`.
         
@@ -307,12 +314,12 @@ Connect these columns with `DimRatingLevel` and use `SelfRating` as the acti
         ManagerRating = CALCULATE(MAX(FactPerformanceRating[ManagerRating]), USERELATIONSHIP(FactPerformanceRating[ManagerRating], DimRatingLevel[RatingID]))
         ```
         
-        ![Untitled](README%2089822b6d47a04160924301ee8c2bced5/Untitled%2026.png)
+        ![Untitled](README/Untitled%2026.png)
         
 
-![Untitled](README%2089822b6d47a04160924301ee8c2bced5/Untitled%2027.png)
+![Untitled](README/Untitled%2027.png)
 
-![Untitled](README%2089822b6d47a04160924301ee8c2bced5/Untitled%2028.png)
+![Untitled](README/Untitled%2028.png)
 
 ### Building ***********Attrition*********** Page
 
@@ -320,7 +327,7 @@ Connect these columns with `DimRatingLevel` and use `SelfRating` as the acti
     1. Copy and paste OR create a new card visual using the `% Attrition Rate` measure.
     2. Select an appropriate visualization that displays the `% Attrition Rate` for each department and job role.
         
-        ![Untitled](README%2089822b6d47a04160924301ee8c2bced5/Untitled%2029.png)
+        ![Untitled](README/Untitled%2029.png)
         
 - **Understanding our `% Attrition Rate` based on our `HireDate`.**
     1. First, create a new measure that uses `CALCULATE()` on our `InactiveEmployees` and makes use of the `USERELATIONSHIP` function. Name this measure `InactiveEmployeesDate`.
@@ -338,24 +345,24 @@ Connect these columns with `DimRatingLevel` and use `SelfRating` as the acti
     3. Select an appropriate visualization that displays the `% Attrition Rate Date` over time.
     Rename the chart "Attrition by Hire Date".
         
-        ![Untitled](README%2089822b6d47a04160924301ee8c2bced5/Untitled%2030.png)
+        ![Untitled](README/Untitled%2030.png)
         
     
 - ****************************************************************************Attrition by Travel Frequency, Overtime, Tenure.****************************************************************************
     1. Select an appropriate visualization that displays the `% Attrition Rate` and `TotalEmployees` for `Business Travel` .
     Rename the chart "Attrition by Travel Frequency".
         
-        ![Untitled](README%2089822b6d47a04160924301ee8c2bced5/Untitled%2031.png)
+        ![Untitled](README/Untitled%2031.png)
         
     2. Select an appropriate visualization that displays the `% Attrition Rate` based on whether an employee does overtime or not.
     Rename the chart "Attrition by Overtime Requirement".
         
-        ![Untitled](README%2089822b6d47a04160924301ee8c2bced5/Untitled%2032.png)
+        ![Untitled](README/Untitled%2032.png)
         
     3. Select an appropriate visualization that displays the `% Attrition Rate` based on years working for Atlas Labs.
     Rename the chart "Attrition by Tenure".
         
-        ![Untitled](README%2089822b6d47a04160924301ee8c2bced5/Untitled%2033.png)
+        ![Untitled](README/Untitled%2033.png)
         
     
 
@@ -365,12 +372,12 @@ Connect these columns with `DimRatingLevel` and use `SelfRating` as the acti
 2. **Theme formatting**
 3. **Page navigation**
 
-![1.Overview.png](README%2089822b6d47a04160924301ee8c2bced5/1.Overview.png)
+![1.Overview.png](README/1.Overview.png)
 
-![2.Demographics.png](README%2089822b6d47a04160924301ee8c2bced5/2.Demographics.png)
+![2.Demographics.png](README/2.Demographics.png)
 
-![3.Performance Tracker.png](README%2089822b6d47a04160924301ee8c2bced5/3.Performance_Tracker.png)
+![3.Performance Tracker.png](README/3.Performance_Tracker.png)
 
-![4.Attrition.png](README%2089822b6d47a04160924301ee8c2bced5/4.Attrition.png)
+![4.Attrition.png](README/4.Attrition.png)
 
-![snowflake Schema.png](README%2089822b6d47a04160924301ee8c2bced5/snowflake_Schema.png)
+![snowflake Schema.png](README/snowflake_Schema.png)
