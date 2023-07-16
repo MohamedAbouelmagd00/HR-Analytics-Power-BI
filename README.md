@@ -1,10 +1,31 @@
 # README
+A software company want to analyze and visualize Human Resources data in Power BI to get the high-level metrics, Hiring trends over time, Understanding Departments and Job roles, Tracking employees performance, and Understanding attrition.
+
 
 ## Power BI LINK
 https://app.powerbi.com/view?r=eyJrIjoiMzE1ZTU2MjYtNjU5Zi00NTkyLWFhOGMtODQ4M2Q0ODdkMjFiIiwidCI6ImJhYzk0Y2Y0LTdkMjAtNDNhNC05NzFjLThhOTgxNWExZDE3ZiJ9&pageName=ReportSection
 
-<iframe title="HR Analytics" width="1024" height="1060" src="https://app.powerbi.com/view?r=eyJrIjoiMzE1ZTU2MjYtNjU5Zi00NTkyLWFhOGMtODQ4M2Q0ODdkMjFiIiwidCI6ImJhYzk0Y2Y0LTdkMjAtNDNhNC05NzFjLThhOTgxNWExZDE3ZiJ9&pageName=ReportSection" frameborder="0" allowFullScreen="true"></iframe>
 
+![1.Overview.png](README/1.Overview.png)
+
+![2.Demographics.png](README/2.Demographics.png)
+
+![3.Performance Tracker.png](README/3.Performance_Tracker.png)
+
+![4.Attrition.png](README/4.Attrition.png)
+
+![snowflake Schema.png](README/snowflake_Schema.png)
+
+## Key Insights
+1. The Company employed over 1,470 people since its doors opened.
+2. The Company currently employs over 1,200 people.
+3. The largest department by far is Technology as expected, being a Software company.
+4. The attrition rate for employees leaving the organization is 16%
+5. Majority of employees are between 20-29 years old.
+6. Currently,The Company employs 2.7% more women than men.
+7. Non-binary employees 8.5% of total employees.
+8. White employees have the highest average salary and make the majority of the organaization.
+9. “Mixed or multiple ethnic groups’ have one of the lowest average salaries.
 
 
 The datasets are in 5 files `EducationLevel.csv`, `Employee.csv`, `PerformanceRating.csv`, `RatingLevel.csv`, and `SatisfiedLevel.csv` 
@@ -359,7 +380,7 @@ Connect these columns with `DimRatingLevel` and use `SelfRating` as the acti
         
         ![Untitled](README/Untitled%2032.png)
         
-    3. Select an appropriate visualization that displays the `% Attrition Rate` based on years working for Atlas Labs.
+    3. Select an appropriate visualization that displays the `% Attrition Rate` based on years working for The Company.
     Rename the chart "Attrition by Tenure".
         
         ![Untitled](README/Untitled%2033.png)
@@ -372,12 +393,4 @@ Connect these columns with `DimRatingLevel` and use `SelfRating` as the acti
 2. **Theme formatting**
 3. **Page navigation**
 
-![1.Overview.png](README/1.Overview.png)
 
-![2.Demographics.png](README/2.Demographics.png)
-
-![3.Performance Tracker.png](README/3.Performance_Tracker.png)
-
-![4.Attrition.png](README/4.Attrition.png)
-
-![snowflake Schema.png](README/snowflake_Schema.png)
